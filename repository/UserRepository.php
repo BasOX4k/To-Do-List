@@ -1,7 +1,7 @@
 <?php
 
-require_once __DIR__"./../classes/Db.php";
-require_once __DIR__"./../../classes/Student.php";
+require_once __DIR__ .  "./../classes/Db.php";
+require_once __DIR__ . "./../../classes/user.php";
 
 class UserRepository extends Db 
 {
@@ -9,7 +9,7 @@ class UserRepository extends Db
     {
         $data = $this->getDb()->query('SELECT * FROM user');
 
-        $student = [];
+        $user = [];
 
         foreach ($data as $user) {
             $newUser = new User(
@@ -28,17 +28,45 @@ class UserRepository extends Db
         return $user;
     }
 
-    public function creat($newUser)
+    public function create($newUser)
     {
-        $request = 'INSERT INTO student (nom, prenom, email, motDePasse, id) VALUES (?, ?, ?, ?, ?)';
+        $request = 'INSERT INTO user (nom, prenom, email, motDePasse, id) VALUES (?, ?, ?, ?, ?)';
         $query = $this->getDb()->prepare($request);
 
         $query->execute([
             $newUser->getNom(),
             $newUser->getPrenom(),
             $newUser->getEmail(),
-            $newUser->getmotDePasse(),
+            $newUser->getMotDePasse(),
             $newUser->getId(),
         ]);
+    }
+
+
+    public function update($user)
+{
+    $request = "UPDATE user SET nom = ?, prenom = ?, email= ?, motDePasse = ? WHERE id = ?";
+    
+    $query = $this->getDb()->prepare($request);
+
+
+    $query->execute([
+        $user->getNom(),
+        $user->gePrenom(),
+        $user->getEmail(),
+        $user->getMotDePasse(),
+        $user->getId(),
+    ]);
+    
+} 
+
+
+    public function delete($user)
+    {
+
+    $request = 'DELETE FROM user WHERE id= ?';
+    $query = $this->getDb()->prepare($request);
+
+    $query->execute([$user->getId()]);
     }
 }

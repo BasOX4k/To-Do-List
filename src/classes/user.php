@@ -20,14 +20,25 @@ class User
         $this->id = $id;
     }
 
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+
     public function getNom()
     {
-        return $this->name;
+        return $this->nom;
     }
 
     public function setNom($nom)
     {
-        $this->name = $name;
+        $this->nom = $nom;
     }
 
     public function getPrenom()
@@ -52,21 +63,12 @@ class User
 
     public function getMotDePasse()
     {
-        return $this->getMotDePasse;
+        return $this->motDePasse;
     }
 
     public function setMotDePasse($motDePasse)
     {
-        $this->getMotDePasse = $motDePasse;
+        $this->motDePasse = $motDePasse;
     }
 
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
 }

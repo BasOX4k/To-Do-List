@@ -10,17 +10,12 @@
 <body>
 <h2>To Do List</h2>
 <style> 
-.list-group-item {
 
-
-}
 </style>
 
 <?php
 include "./components/navbar.php";
-include "./components/list.php";
 include "./components/form.php";
-include "./components/badge.php";
 ?>
 
 </body>
