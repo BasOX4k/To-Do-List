@@ -1,15 +1,15 @@
 <?php
 
-require_once __DIR__ . "./../config.php";
+require_once  "./../config.php";
 
 class DB
 {
-    private $db;
+    private $Db;
 
     public function __construct()
     {
         try{
-            $this->db = new PDO(
+            $this->Db = new PDO(
                 'mysql:host=' . DATABASE_HOST . 'dbname=' . DATABASE_NAME . ';charset=utf8', DATABASE_USERNAME, DATABASE_PASSWORD
             );
         } catch (Exception $e) {
@@ -19,6 +19,6 @@ class DB
 
     public function getDb()
     {
-        return $this->db;
+        return $this->Db;
     }
 }

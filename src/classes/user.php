@@ -2,73 +2,73 @@
 
 class User 
 {
-    private $id;
-    private $nom;
-    private $prenom;
-    private $email;
-    private $motDePasse;
+    private $Id;
+    private $Nom;
+    private $Prenom;
+    private $Email;
+    private $MotDePasse;
 
     
 
 
-    function __construct($nom, $prenom, $email, $motDePasse, $id)
+    function __construct($Nom, $Prenom, $Email, $MotDePasse, $Id)
     {
-        $this->nom = $nom;
-        $this->prenom = $prenom;
-        $this->email = $email;
-        $this->motDePasse = $motDePasse;
-        $this->id = $id;
+        $this->Nom = $Nom;
+        $this->Prenom = $Prenom;
+        $this->Email = $Email;
+        $this->MotDePasse = $MotDePasse;
+        $this->Id = $Id;
     }
 
     public function getId()
     {
-        return $this->id;
+        return $this->Id;
     }
 
-    public function setId($id)
+    public function setId($Id)
     {
-        $this->id = $id;
+        $this->Id = $Id;
     }
 
 
     public function getNom()
     {
-        return $this->nom;
+        return $this->Nom;
     }
 
-    public function setNom($nom)
+    public function setNom($Nom)
     {
-        $this->nom = $nom;
+        $this->Nom = $Nom;
     }
 
     public function getPrenom()
     {
-        return $this->prenom;
+        return $this->Prenom;
     }
 
-    public function setPrenom($prenom)
+    public function setPrenom($Prenom)
     {
-        $this->prenom = $prenom;
+        $this->Prenom = $Prenom;
     }
 
     public function getEmail()
     {
-        return $this->email;
+        return $this->Email;
     }
 
-    public function setEmail($email)
+    public function setEmail($Email)
     {
-        $this->email = $email;
+        $this->Email = $Email;
     }
 
     public function getMotDePasse()
     {
-        return $this->motDePasse;
+        return $this->MotDePasse;
     }
 
-    public function setMotDePasse($motDePasse)
+    public function setMotDePasse($MotDePasse)
     {
-        $this->motDePasse = $motDePasse;
+        $this->MotDePasse = $MotDePasse;
     }
 
 }

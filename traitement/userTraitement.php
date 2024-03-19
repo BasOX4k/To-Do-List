@@ -1,29 +1,33 @@
 <?php
 
-require_once __DIR__ . "/src/Classes/user.php";
-require_once __DIR__ . "/src/Repository/UserRepository.php";
+
+require_once "../config.php";
+require_once '../src/classes/user.php';
+require_once  '../Repository/UserRepository.php';
+require_once  '../src/classes/Db.php';
+ 
 
 if (
     !empty($_POST) &&
-    isset($_POST['nom']) &&
-    isset($_POST['prenom']) &&
-    isset($_POST['email']) &&
-    isset($_POST['motDePasse']) 
+    isset($_POST['Nom']) &&
+    isset($_POST['Prenom']) &&
+    isset($_POST['Email']) &&
+    isset($_POST['MotDePasse']) 
 ) {
-    $nom = htmlspecialchars($_POST['nom']);
-    $prenom = htmlspecialchars($_POST['prenom']);
-    $email = htmlspecialchars($_POST['email']);
-    $motDePasse = $_POST['motDePasse']; // No need for htmlspecialchars here
+    $Nom = htmlspecialchars($_POST['Nom']);
+    $Prenom = htmlspecialchars($_POST['Prenom']);
+    $Email = htmlspecialchars($_POST['Email']);
+    $MotDePasse = $_POST['MotDePasse']; // No need for htmlspecialchars here
 
     // Hash the password using bcrypt
     $hashedMotDePasse = password_hash($motDePasse, PASSWORD_DEFAULT);
 
     $newUser = new User (
-       $id,
-        $nom,
-        $prenom,
-        $email,
-        $hashedMotDePasse,
+        $Id,
+        $Nom,
+        $Prenom,
+        $Email,
+        $hashedMotDePasse
     );
 
     $UserRepository = new UserRepository();

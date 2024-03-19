@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -13,11 +11,8 @@
 
 </style>
 
-<?php
+<?php 
+
 include "./components/navbar.php";
-include "./components/form.php";
 include "./components/taches.php";
 ?>
-
-</body>
-</html>

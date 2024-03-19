@@ -1,4 +1,4 @@
-<form class="row g-3">
+<form class="row g-3" action="traitement/userTraitement.php">
 <div class="col-8">
     <label for="nom" class="form-label">Nom</label>
     <input type="text" class="form-control" id="nom">

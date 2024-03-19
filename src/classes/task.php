@@ -2,60 +2,69 @@
 
 class Task
 {
-    private $id;
-    private $titre;
-    private $description;
-    private $date;
-    private $priorite;
+    private $Id;
+    private $Titre;
+    private $Description;
+    private $Date;
+    private $Priorite;
 
 
-    function __construct($titre, $description, $date, $priorite, $id)
+    function __construct($Titre, $Description, $Date, $Priorite, $Id)
 
     {
-        $this->titre = $titre;
-        $this->description = $description;
-        $this->date = $date;
-        $this->priorite = $priorite;
-        $this->id = $id;
+        $this->Titre = $Titre;
+        $this->Description = $Description;
+        $this->Date = $Date;
+        $this->Priorite = $Priorite;
+        $this->Id = $Id;
     }
 
     public function getTitre()
     {
-        return $this->titre;
+        return $this->Titre;
     }
 
-    public function setTitre($titre)
+    public function setTitre($Titre)
     {
-        $this->titre = $titre;
+        $this->Titre = $Titre;
     }
 
     public function getDescription()
     {
-        return $this->description;
+        return $this->Description;
     }
 
-    public function setDescription($description)
+    public function setDescription($Description)
     {
-        $this->description = $description;
+        $this->Description = $Description;
     }
 
     public function getDate()
     {
-        return $this->date;
+        return $this->Date;
     }
 
-    public function setDate($date)
+    public function setDate($Date)
     {
-        $this->date = $date;
+        $this->Date = $Date;
+    }
+    public function getPriorite()
+    {
+        return $this->Priorite;
+    }
+
+    public function setPriorite($Priorite)
+    {
+        $this->Priorite = $Priorite;
     }
 
     public function getId()
     {
-        return $this->id;
+        return $this->Id;
     }
 
-    public function setId($id)
+    public function setId($Id)
     {
-        $this->id = $id;
+        $this->Id = $Id;
     }
 }

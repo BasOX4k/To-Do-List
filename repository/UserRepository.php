@@ -1,7 +1,7 @@
 <?php
-
-require_once __DIR__ .  "./../classes/Db.php";
-require_once __DIR__ . "./../../classes/user.php";
+require_once "../config.php";
+require_once "../src/classes/Db.php";
+require_once "../src/classes/user.php";
 
 class UserRepository extends Db 
 {
@@ -13,11 +13,11 @@ class UserRepository extends Db
 
         foreach ($data as $user) {
             $newUser = new User(
-                $user['nom'],
-                $user['prenom'],
-                $user['email'],
-                $user['motDePasse'],
-                $user['id'],
+                $user['Nom'],
+                $user['Prenom'],
+                $user['Email'],
+                $user['MotDePasse'],
+                $user['Id'],
 
 
             );
@@ -30,22 +30,22 @@ class UserRepository extends Db
 
     public function create($newUser)
     {
-        $request = 'INSERT INTO user (nom, prenom, email, motDePasse, id) VALUES (?, ?, ?, ?, ?)';
+        $request = 'INSERT INTO user (Nom, Prenom, Email, MotDePasse, Id) VALUES (?, ?, ?, ?, ?)';
         $query = $this->getDb()->prepare($request);
 
         $query->execute([
-            $newUser->getNom(),
-            $newUser->getPrenom(),
-            $newUser->getEmail(),
-            $newUser->getMotDePasse(),
-            $newUser->getId(),
+           'Nom'=> $newUser->getNom(),
+            'Prenom'=> $newUser->getPrenom(),
+            'Email' =>$newUser->getEmail(),
+            'MotDePasse' =>$newUser->getMotDePasse(),
+            'Id' => $newUser->getId(),
         ]);
     }
 
 
     public function update($user)
 {
-    $request = "UPDATE user SET nom = ?, prenom = ?, email= ?, motDePasse = ? WHERE id = ?";
+    $request = "UPDATE user SET Nom = ?, Prenom = ?, Email= ?, MotDePasse = ? WHERE id = ?";
     
     $query = $this->getDb()->prepare($request);
 
