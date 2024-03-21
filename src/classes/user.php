@@ -2,16 +2,16 @@
 
 class User 
 {
-    private $Id;
     private $Nom;
     private $Prenom;
     private $Email;
     private $MotDePasse;
-
+    private $Id;
+    
     
 
 
-    function __construct($Nom, $Prenom, $Email, $MotDePasse, $Id)
+    function __construct($Nom, $Prenom, $Email, $MotDePasse, $Id = null)
     {
         $this->Nom = $Nom;
         $this->Prenom = $Prenom;

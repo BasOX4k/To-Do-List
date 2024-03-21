@@ -2,11 +2,11 @@
 
 class Task
 {
-    private $Id;
     private $Titre;
     private $Description;
     private $Date;
     private $Priorite;
+    private $Id;
 
 
     function __construct($Titre, $Description, $Date, $Priorite, $Id)
@@ -31,6 +31,7 @@ class Task
 
     public function getDescription()
     {
+        
         return $this->Description;
     }
 

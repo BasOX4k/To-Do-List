@@ -1,22 +1,22 @@
 <?php
-require_once "../config.php";
-require_once "../src/classes/Db.php";
-require_once "../src/classes/user.php";
 
-class UserRepository extends Db 
+require_once __DIR__ ."/../src/classes/Database.php";
+require_once __DIR__ ."/../src/classes/user.php";
+
+class UserRepository extends Database 
 {
     public function getAll()
     {
-        $data = $this->getDb()->query('SELECT * FROM user');
+        $data = $this->getDB()->query('SELECT * FROM todo_user');
 
         $user = [];
 
         foreach ($data as $user) {
             $newUser = new User(
                 $user['Nom'],
-                $user['Prenom'],
-                $user['Email'],
+                $user['Prénom'],
                 $user['MotDePasse'],
+                $user['Email'],
                 $user['Id'],
 
 
@@ -30,29 +30,30 @@ class UserRepository extends Db
 
     public function create($newUser)
     {
-        $request = 'INSERT INTO user (Nom, Prenom, Email, MotDePasse, Id) VALUES (?, ?, ?, ?, ?)';
-        $query = $this->getDb()->prepare($request);
+        $request = 'INSERT INTO todo_user (Nom,	Prenom,		Email ,MotDePasse	) VALUES ( :Nom, :Prenom, :Email , :MotDePasse)';
+        $query = $this->getDB()->prepare($request);
+        
 
         $query->execute([
            'Nom'=> $newUser->getNom(),
             'Prenom'=> $newUser->getPrenom(),
             'Email' =>$newUser->getEmail(),
             'MotDePasse' =>$newUser->getMotDePasse(),
-            'Id' => $newUser->getId(),
+            // 'Id' => $newUser->getId(),
         ]);
     }
 
 
     public function update($user)
 {
-    $request = "UPDATE user SET Nom = ?, Prenom = ?, Email= ?, MotDePasse = ? WHERE id = ?";
+    $request = "UPDATE user SET Nom = ?, Prénom = ?, Email= ?, MotDePasse = ? WHERE id = ?";
     
-    $query = $this->getDb()->prepare($request);
+    $query = $this->getDB()->prepare($request);
 
 
     $query->execute([
         $user->getNom(),
-        $user->gePrenom(),
+        $user->getPrenom(),
         $user->getEmail(),
         $user->getMotDePasse(),
         $user->getId(),
@@ -65,7 +66,7 @@ class UserRepository extends Db
     {
 
     $request = 'DELETE FROM user WHERE id= ?';
-    $query = $this->getDb()->prepare($request);
+    $query = $this->getDB()->prepare($request);
 
     $query->execute([$user->getId()]);
     }

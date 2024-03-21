@@ -1,7 +1,7 @@
 <?php
 
 define("DATABASE_HOST", "localhost");
-define("DATABASE_NAME", "todo");
-define("DATABASE_USERNAME", "todolist");
-define("DATABASE_PASSWORD", "azer1234");
-define('PREFIXE', 'todo_');
+define("DATABASE_NAME", "todolist1");
+define("DATABASE_USERNAME", "todolist1");
+define("DATABASE_PASSWORD", "todolist1");
+// define('PREFIXE', 'todo_');
